@@ -51,7 +51,7 @@ class Login extends React.Component {
 
 	loginHandle(username) {
 		//保存用户名
-		const action = this.props.userinfoActions;
+		const actions = this.props.userinfoActions;
 		let userinfo = this.props.userinfo;
 		userinfo.username = username;
 		actions.update(userinfo);
@@ -59,8 +59,13 @@ class Login extends React.Component {
 		//跳转链接
 		const params = this.props.match.params;
 		const router = params.router;
+		console.log(router)
 		if(router) {
-			hashHistory(router)
+			//跳转到指定的页面
+			hashHistory('/'+router)
+		} else {
+			//跳转到用户主页
+			this.goUserPage();
 		}
 	}
 }
