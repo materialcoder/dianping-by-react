@@ -78,7 +78,27 @@ router.get('/get/detail/comment/:page/:id', function(ctx, next) {
 	console.log('当前页数：' + page);
 
 	ctx.body = detailCommentData;
-})
+});
+
+//用户详情页 - 购买清单
+const orderListData = require("./orderlist/orderList.js")
+router.get('/get/orderlist/:username', function(ctx, next) {
+	const params = ctx.params;
+	const username = params.username;
+	console.log('用户名: ' + username);
+
+	ctx.body = orderListData;
+});
+
+//提交评论
+router.post('/post/submitComment', function(ctx, next) {
+	console.log('提交评论');
+
+	ctx.body = {
+		errono: 0,
+		msg: 'ok'
+	}
+});
 
 //开始服务并生成路由
 app.use(router.routes())

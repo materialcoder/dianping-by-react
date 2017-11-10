@@ -18,7 +18,7 @@ class Login extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header title="登录" />
+				<Header title="登录" backRouter="/" />
 				{
 					this.state.checking
 					? <div>{/* 加载中... */}</div>
@@ -62,7 +62,7 @@ class Login extends React.Component {
 		console.log(router)
 		if(router) {
 			//跳转到指定的页面
-			hashHistory('/'+router)
+			hashHistory('/'+decodeURIComponent(router))
 		} else {
 			//跳转到用户主页
 			this.goUserPage();

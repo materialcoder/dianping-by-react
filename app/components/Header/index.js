@@ -1,4 +1,5 @@
 import React from "react"
+import { hashHistory } from "../../history/hashHistory.js"
 
 import "./style.less"
 
@@ -15,7 +16,12 @@ class Header extends React.Component {
 	}
 
 	clickHandle() {
-		window.history.back();
+		const backRouter = this.props.backRouter;
+		if(backRouter) {
+			hashHistory(backRouter)
+		} else {
+			window.history.back();
+		}
 	}
 }
 
