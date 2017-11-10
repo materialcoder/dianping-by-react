@@ -51,8 +51,8 @@ module.exports = {
 				use: {
 					loader: "url-loader",
 					options: {
-						limit: 5000,
-						name: "fonts/[name].[chunkhash:8]"
+						limit: 100000,
+						name: "fonts/[name].[chunkhash:8].[ext]"
 					}
 				}
 			}
